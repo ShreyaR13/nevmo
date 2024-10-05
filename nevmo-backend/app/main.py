@@ -57,6 +57,7 @@ async def read_users_me(current_user: User = Depends(get_current_user)):
     return current_user
 
 @app.get("/balance/")
-# async def getBalance(token: str = Depends(oauth2_scheme)):
-async def get_balance(token: str = Depends(oauth2_scheme)):
-    return {"balance": "200.00"}
+# async def getBalance(token: str = Depends(oauth2_scheme)): accessible to all users
+async def get_balance(current_user: dict = Depends(get_current_user)):
+    if not current_user: return "Not authenticated"
+    return {"balance": "200.00"} # Only accessible by authenticated users
