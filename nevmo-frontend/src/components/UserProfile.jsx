@@ -20,7 +20,7 @@ function UserProfile() {
                 return;
             }
 
-            const response = await fetch('http://127.0.0.1:8000/users/me/', {
+            const response = await fetch('https://nevmo-fastapi-backend.onrender.com/users/me/', {
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ function UserProfile() {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://127.0.0.1:8000/send-money/', {
+            const response = await fetch('https://nevmo-fastapi-backend.onrender.com/send-money/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
