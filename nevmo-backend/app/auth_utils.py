@@ -22,13 +22,21 @@ fake_users_db = {
         "username": "john",
         "email": "john@example.com",
         "hashed_password": pwd_context.hash("secret"),
+        "balance": 100.00
+    },
+    "jane": {
+        "username": "jane",
+        "email": "jane@example.com",
+        "hashed_password": pwd_context.hash("password12"),
+        "balance": 200.00
     }
 }
 
-# password hashing utility
+# verify password
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
+# password hashing 
 def get_password_hash(password):
     return pwd_context.hash(password)
 
@@ -52,7 +60,7 @@ def authenticate_user(fake_db, username: str, password: str):
         return False
     return user
 
-# Get current user details
+# Get current user details - GET request
 async def get_current_user(token: str = Depends(oauth2_scheme)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,

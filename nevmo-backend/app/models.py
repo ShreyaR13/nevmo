@@ -13,3 +13,7 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     username: str | None = None
+
+# Model to represent the user data with balance
+class UserWithBalance(User):
+    balance: float

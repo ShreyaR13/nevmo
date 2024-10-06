@@ -5,7 +5,7 @@ from passlib.context import CryptContext
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.auth_utils import authenticate_user, get_current_user, create_access_token, fake_users_db, ACCESS_TOKEN_EXPIRE_MINUTES
-from app.models import Token, User
+from app.models import Token, User, UserWithBalance
 
 
 app = FastAPI()
@@ -58,6 +58,5 @@ async def read_users_me(current_user: User = Depends(get_current_user)):
 
 @app.get("/balance/")
 # async def getBalance(token: str = Depends(oauth2_scheme)): accessible to all users
-async def get_balance(current_user: dict = Depends(get_current_user)):
-    if not current_user: return "Not authenticated"
-    return {"balance": "200.00"} # Only accessible by authenticated users
+async def get_balance(current_user: UserWithBalance = Depends(get_current_user)):
+    return current_user # Only accessible by authenticated users
