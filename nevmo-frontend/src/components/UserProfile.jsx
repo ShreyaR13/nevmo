@@ -40,11 +40,16 @@ function UserProfile() {
     };
 
     const handleSendMoney = () => {
-        alert("Send money clicked");
+        if (balance == 0) {
+            alert("Insufficient balance!");
+        }
+        else {
+            alert("Send money clicked!");
+        }
     };
 
     const handleDepositMoney = () => {
-        alert("Deposit money clicked");
+        alert("Deposit money clicked!");
     };
 
     return (

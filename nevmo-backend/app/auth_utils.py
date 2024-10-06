@@ -29,6 +29,12 @@ fake_users_db = {
         "email": "jane@example.com",
         "hashed_password": pwd_context.hash("password12"),
         "balance": 200.00
+    },
+    "shreya": {
+        "username": "shreya",
+        "email": "shreya@example.com",
+        "hashed_password": pwd_context.hash("newpassword"),
+        "balance": 0.00
     }
 }
 
