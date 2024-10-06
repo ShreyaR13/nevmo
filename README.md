@@ -7,6 +7,7 @@ Nevmo is a proof of concept Money Transfer Application
 4. Tailwind CSS (UI)
 5. JWT (Authentication)
 ## Features Implemented
+#### Phase 1
 1. User login and logout 
 2. User authentication using JWT
 3. Send money feature
