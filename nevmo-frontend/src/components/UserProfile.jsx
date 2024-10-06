@@ -40,12 +40,7 @@ function UserProfile() {
     };
 
     const handleSendMoney = () => {
-        if (balance == 0) {
-            alert("Insufficient balance!");
-        }
-        else {
-            alert("Send money clicked!");
-        }
+        alert("Send money clicked!");
     };
 
     const handleDepositMoney = () => {
@@ -61,7 +56,8 @@ function UserProfile() {
                 <div className="space-x-4 flex justify-center mb-6">
                     <button
                         onClick={handleSendMoney}
-                        className="py-3 px-6 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 transition"
+                        className="py-3 px-6 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 transition disabled:bg-slate-300 disabled:text-zinc-500"
+                        disabled={!balance}
                     >
                         Send Money
                     </button>
