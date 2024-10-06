@@ -17,3 +17,7 @@ class TokenData(BaseModel):
 # Model to represent the user data with balance
 class UserWithBalance(User):
     balance: float
+
+class SendMoneyRequest(BaseModel):
+    recipient: str
+    amount: float
