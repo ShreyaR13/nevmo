@@ -103,15 +103,6 @@ function UserProfile() {
                 <h1 className="text-3xl font-bold text-center mb-6">Welcome to Nevmo</h1>
                 <h2 className="text-xl font-bold text-center mb-6">Hello {username}!</h2>
                 {balance !== null && <p className="text-xl text-center text-green-600 mb-6">Your balance is ${balance}</p>}
-                {/* <div className="space-x-4 flex justify-center mb-6">
-                    <button
-                        onClick={handleSendMoney}
-                        className="py-3 px-6 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 transition disabled:bg-slate-300 disabled:text-zinc-500"
-                        disabled={!balance}
-                    >
-                        Send Money
-                    </button>
-                </div> */}
                 <div className="space-y-4 mb-4">
                     <input
                         type="text"

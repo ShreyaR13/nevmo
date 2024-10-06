@@ -42,9 +42,9 @@ fake_users_db = {
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
-# password hashing 
-def get_password_hash(password):
-    return pwd_context.hash(password)
+# password hashing (during user registration)
+# def get_password_hash(password):
+#     return pwd_context.hash(password)
 
 # Create JWT token. Dependency function to get current_user from access token (main.py).
 def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
