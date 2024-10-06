@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 function UserProfile() {
     const [balance, setBalance] = useState(null);
+    const [username, setUsername] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserProfile = async () => {
+            // localStorage is used so user stays logged in, even after refreshing the page
             const token = localStorage.getItem('token');
             if (!token) {
                 navigate('/');  // Redirect to login if not authenticated
@@ -23,6 +25,7 @@ function UserProfile() {
             if (response.ok) {
                 const userData = await response.json();
                 setBalance(userData.balance);
+                setUsername(userData.username);
             } else {
                 navigate('/');  // Redirect to login if unauthorized
             }
@@ -40,15 +43,16 @@ function UserProfile() {
         alert("Send money clicked");
     };
 
-    const handleReceiveMoney = () => {
-        alert("Receive money clicked");
+    const handleDepositMoney = () => {
+        alert("Deposit money clicked");
     };
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-blue-100">
             <div className="bg-white p-8 shadow-lg rounded-lg max-w-md w-full">
                 <h1 className="text-3xl font-bold text-center mb-6">Welcome to Nevmo</h1>
-                {balance !== null && <p className="text-xl text-center text-green-600 mb-6">Your balance: ${balance}</p>}
+                <h2 className="text-xl font-bold text-center mb-6">Hello {username}!</h2>
+                {balance !== null && <p className="text-xl text-center text-green-600 mb-6">Your balance is ${balance}</p>}
                 <div className="space-x-4 flex justify-center mb-6">
                     <button
                         onClick={handleSendMoney}
@@ -57,10 +61,10 @@ function UserProfile() {
                         Send Money
                     </button>
                     <button
-                        onClick={handleReceiveMoney}
+                        onClick={handleDepositMoney}
                         className="py-3 px-6 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 transition"
                     >
-                        Receive Money
+                        Deposit Money
                     </button>
                 </div>
                 <button
