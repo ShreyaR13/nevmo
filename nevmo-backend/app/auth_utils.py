@@ -3,12 +3,17 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
+from dotenv import load_dotenv
+import os
 from typing import Optional
 
 from app.models import TokenData
 
+# Load environment variables from the .env file
+load_dotenv()
+
 # Define JWT secret, algo and expiration time
-SECRET_KEY = "YOUR_SECRET_KEY"
+SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
