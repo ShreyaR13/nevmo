@@ -4,7 +4,7 @@ from datetime import timedelta
 from passlib.context import CryptContext
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.auth_utils import authenticate_user, get_current_user, create_access_token, fake_users_db, ACCESS_TOKEN_EXPIRE_MINUTES
+from app.auth_utils import authenticate_user, get_current_user, create_access_token, fake_users_db
 from app.models import Token, User, UserWithBalance, SendMoneyRequest
 
 
@@ -29,6 +29,8 @@ app.add_middleware(
 # user and JWT configuration
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 pwd_connect = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+ACCESS_TOKEN_EXPIRE_MINUTES=30
 
 @app.get("/")
 def read_root():
