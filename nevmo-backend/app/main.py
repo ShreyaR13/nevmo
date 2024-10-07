@@ -13,7 +13,6 @@ app = FastAPI()
 # cors setting for FE and BE communication
 origins = [
     "https://nevmo-react-frontend.onrender.com",
-    "http://localhost:3000"
 ]
 
 app.add_middleware(
