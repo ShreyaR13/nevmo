@@ -17,13 +17,13 @@ https://nevmo-react-frontend.onrender.com/
 
 #### Credentials for testing the application
 User 1:
-> Username: john
+> Username: john <br />
   Password: secret
 
 User 2:
-> Username: jane
+> Username: jane <br />
   Password: password12
 
 User 3:
-> Username: shreya
+> Username: shreya <br />
   Password: newpassword
